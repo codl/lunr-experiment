@@ -37,7 +37,7 @@
     function display_results(entries){
         var ul = document.querySelector("ul#results");
         ul.innerHTML = "";
-        for(var track of entries){
+        for(var track of entries.slice(0, 50)){
             var li = document.createElement("li");
             li.textContent = " " + track.id + " " + track.artist + " - " + track.title;
             ul.appendChild(li);
