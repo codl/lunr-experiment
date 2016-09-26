@@ -1,0 +1,82 @@
+[
+    {
+        "date": "2011-12-31T10:40:35.698083+01:00",
+        "artist_id": 6,
+        "id": 26,
+        "artist": "Makkon",
+        "title": "Avast Octavia's Plot",
+        "description": "String Quintet of a popular song that was ponified by a few popular musicians."
+    },
+    {
+        "date": "2011-12-31T10:54:29.846408+01:00",
+        "artist_id": 6,
+        "id": 30,
+        "artist": "Makkon",
+        "title": "Waltz for Trixie",
+        "description": ""
+    },
+    {
+        "date": "2013-02-21T01:51:02.881931+01:00",
+        "artist_id": 1194,
+        "id": 4553,
+        "artist": "ThePureNote",
+        "title": "Like a Spinning Record (COVER)",
+        "description": "Did this because I very much enjoy this song. \r\n\r\nAll credit goes to LivingTombstone."
+    },
+    {
+        "date": "2012-01-13T03:07:26.709196+01:00",
+        "artist_id": 5,
+        "id": 205,
+        "artist": "Tsyolin",
+        "title": "A Heart Warming Night",
+        "description": ""
+    },
+    {
+        "date": "2011-12-31T11:11:02.608589+01:00",
+        "artist_id": 6,
+        "id": 33,
+        "artist": "Makkon",
+        "title": "Test Pony",
+        "description": "Arguably one of my favorites"
+    },
+    {
+        "date": "2011-12-31T10:43:54.144800+01:00",
+        "artist_id": 6,
+        "id": 27,
+        "artist": "Makkon",
+        "title": "Impressions on Celestia Origins",
+        "description": ""
+    },
+    {
+        "date": "2015-05-15T21:56:34.790452+02:00",
+        "artist_id": 2408,
+        "id": 8966,
+        "artist": "Electric Static",
+        "title": "A Typical Show (Foozogz Challenge)",
+        "description": ""
+    },
+    {
+        "date": "2011-12-31T11:00:26.158795+01:00",
+        "artist_id": 6,
+        "id": 31,
+        "artist": "Makkon",
+        "title": "Winter Wrap Up: Late Again",
+        "description": "Remix of PinkiePieSwear's song, hardly bears any resemblance though."
+    },
+    {
+        "date": "2012-01-22T01:22:03.474719+01:00",
+        "artist_id": 29,
+        "id": 243,
+        "artist": "Vafrous Coyote",
+        "title": "Giggle at the Ghostie",
+        "description": "A capella!"
+    },
+    {
+        "date": "2011-12-29T04:08:38.044969+01:00",
+        "artist_id": 3,
+        "id": 13,
+        "artist": "AspectOfTheStorm",
+        "title": "Luna's Struggle",
+        "description": "I was going for a more subtle, downbeat song for this one. It's pretty short, but I did this entire song in a night."
+    }
+]
