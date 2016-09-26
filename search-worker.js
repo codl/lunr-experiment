@@ -9,9 +9,7 @@ var index = lunr(function(){
     this.ref('id');
     this.field('title', {boost: 10});
     this.field('description');
-    this.field('artist', {boost: 15});
-
-    this.pipeline.reset();
+    this.field('artist', {boost: 20});
 });
 
 var tracks = [];
@@ -24,21 +22,42 @@ function get_track(id){
 function add(track){
     tracks.push(track);
     index.add(track);
-    if(Math.random() > .999) console.log(track)
-    if(tracks.length % 500 == 0){
+    if(tracks.length % 2000 == 0){
         log("indexed " + tracks.length);
     }
     search();
 }
 
-oboe("/data/all.json").node("!.*", node => {add(node); return oboe.drop})
-    .done(() => log("done"))
+var ob = oboe("/data/all.json").node("!.*", node => {queue(node); return oboe.drop})
+    .done(() => {log("done downloading"); ob.finished = true})
+
+var queued = [];
+var queue_timeout;
+function queue(track){
+    queued.push(track);
+    if(!queue_timeout){
+        queue_timeout = setTimeout(queue_run, 200);
+    }
+}
+function queue_run(){
+    for(track of queued.slice(0, 500)){
+        add(track);
+    }
+    queued = queued.slice(500);
+    if(queued.length > 0){
+        queue_timeout = setTimeout(queue_run, 50);
+    } else {
+        queue_timeout = null;
+        if(ob.finished){
+            log("done. " + tracks.length + " indexed");
+        }
+    }
+}
 
 var last_search;
-var last_search_time = 0;
-function search(terms){
+function debounced_search(terms){
     if(!terms || terms == last_search){
-        if(!last_search || last_search_time > Date.now() - 500){
+        if(!last_search){
             return
         }
         else {
@@ -48,8 +67,17 @@ function search(terms){
     postMessage(["results", index.search(terms).map(
         result => get_track(result.ref)
     )]);
-    last_search = terms;
-    last_search_time = Date.now();
+}
+
+var search_debounce_timeout;
+function search(terms){
+    if(search_debounce_timeout){
+        clearTimeout(search_debounce_timeout);
+    }
+    search_debounce_timeout = setTimeout(debounced_search, 20, terms);
+    if(terms){
+        last_search = terms
+    };
 }
 
 onmessage = function onmessage(m){
