@@ -26,6 +26,8 @@
             log(msg);
         } else if(type == "results"){
             display_results(msg);
+        } else if(type == "save-state"){
+            localStorage.setItem("state", JSON.stringify(msg));
         }
     }
 
@@ -43,4 +45,12 @@
             ul.appendChild(li);
         }
     }
+
+    var state;
+    try {
+        state = JSON.parse(localStorage.getItem("state"));
+    } catch (e) {
+        state = null;
+    }
+    worker.postMessage(["restore-state", state]);
 })();
